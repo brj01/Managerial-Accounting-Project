@@ -1,6 +1,9 @@
 # Managerial Accounting Dashboard (React)
 
-React + Vite single-page site for the Banque Misr **SME Growth Accelerator Program** (ACCT2002 managerial accounting project). It wraps the project brief, deliverables, roadmap, and an optional Power BI dashboard embed.
+React + Vite multi-page site for the Banque Misr **SME Growth Accelerator Program** (ACCT2002 managerial accounting project). It now ships with:
+
+- `/` — Case overview with program brief, idea blueprint, market sizing, and competitive edge.
+- `/implementation` — Implementation dossier with milestones, KPI cockpit, SWOT, departments, bank-specific phases, and roadmap.
 
 ## Getting started
 
@@ -19,11 +22,11 @@ npm run build
 npm run preview   # optional local smoke test of the build output
 ```
 
-Deploy the `dist/` folder to any static host (Azure Static Web Apps, Netlify, GitHub Pages, campus server, etc.).
+Deploy the `dist/` folder to any static host (Azure Static Web Apps, Netlify, GitHub Pages, campus server, etc.). All routing is handled client-side via React Router.
 
 ## Configure the Power BI embed
 
-1. Open `src/App.jsx` and update the `embedConfig` object near the top of the file:
+1. Open `src/content/projectData.js` and update the `embedConfig` object near the top of the file:
    - `reportUrl`: paste your Power BI share or secure embed URL.
    - `title`, `description`, `refreshStatus`, `lastRefresh`: optional metadata shown above the iframe.
 2. For demos you can override the link without editing code by appending `?reportUrl=<encoded-link>` to the site URL, e.g.:
@@ -47,6 +50,6 @@ Keeping token generation on the server maintains control over row-level security
 
 ## Customization tips
 
-- Update the data arrays in `src/App.jsx` (`deliverables`, `stakeholders`, `roadmap`, `tips`) to reflect new research, dates, or team assignments.
+- Update the content arrays in `src/content/projectData.js` (idea pillars, market stats, SWOT, departments, phases, impact metrics, roadmap).
 - Adjust the design in `src/App.css` (colors, spacing, layout) or swap the Google Font in `index.html`.
-- Use the site sections to track progress: link deliverables to Google Docs, add references, or embed additional dashboards as the project evolves.
+- Extend the navigation by editing `src/components/Header.jsx` and adding more routes/pages under `src/pages/`.

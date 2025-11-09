@@ -104,6 +104,23 @@ code {
 .primary-nav a {
   color: var(--muted);
   font-weight: 500;
+  position: relative;
+  padding-bottom: 0.2rem;
+}
+
+.primary-nav a.active {
+  color: var(--text);
+}
+
+.primary-nav a.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.2rem;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--brand);
 }
 
 .cta {
@@ -138,6 +155,106 @@ code {
   align-items: center;
 }
 
+.hero-card {
+  background: var(--surface);
+  border-radius: 1.4rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.hero-meta {
+  margin: 0.3rem 0;
+  color: var(--muted);
+}
+
+.hero-meta.highlight {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.page-hero {
+  padding: 4.5rem 0 3.5rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.page-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.page-meta {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.page-meta span {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+.page-meta strong {
+  display: block;
+}
+
+.milestones-card {
+  background: var(--bg);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.milestones-card h3 {
+  margin-top: 0;
+}
+
+.milestones-card ul {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.milestones-card li {
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--border);
+}
+
+.milestones-card li:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.milestone-date {
+  font-weight: 600;
+  margin: 0;
+}
+
+.milestone-label {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  margin: 0.1rem 0;
+  color: var(--brand);
+}
+
+.milestone-detail {
+  margin: 0;
+  color: var(--muted);
+}
+
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -163,47 +280,6 @@ h1 {
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 1.5rem;
-}
-
-.highlight-list {
-  list-style: none;
-  margin: 0;
-  padding: 1.5rem;
-  background: var(--surface);
-  border-radius: 1.5rem;
-  box-shadow: var(--shadow);
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.highlight-list li {
-  display: flex;
-  gap: 1rem;
-}
-
-.highlight-list .label {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 12px;
-  background: var(--brand-soft);
-  color: var(--brand);
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.highlight-list .title {
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-.highlight-list .description {
-  font-size: 0.95rem;
-  color: var(--muted);
-  margin: 0.2rem 0 0;
 }
 
 .insights {
@@ -339,6 +415,101 @@ iframe {
   margin: 0;
 }
 
+.market,
+.competitive,
+.impact,
+.swot,
+.phases {
+  padding: 4rem 0;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.stat-grid article,
+.impact-grid article {
+  background: var(--surface);
+  border-radius: 1.2rem;
+  padding: 1.2rem 1.4rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.stat-label {
+  margin: 0.2rem 0;
+  font-weight: 600;
+}
+
+.stat-detail {
+  margin: 0;
+  color: var(--muted);
+}
+
+.trend-grid,
+.competitive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.competitive-grid article,
+.trend-grid article {
+  background: var(--surface);
+  border-radius: 1.1rem;
+  padding: 1.3rem;
+  border: 1px solid var(--border);
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.2rem;
+}
+
+.impact-value {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.impact-label {
+  margin: 0.3rem 0;
+  font-weight: 600;
+}
+
+.impact-detail {
+  margin: 0;
+  color: var(--muted);
+}
+
+.swot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.swot-grid article {
+  background: var(--surface);
+  border-radius: 1.2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+}
+
+.swot-grid ul {
+  padding-left: 1.2rem;
+  margin: 0.8rem 0 0;
+}
+
 .stakeholder-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -355,6 +526,40 @@ iframe {
 
 .stakeholder-list h3 {
   margin-top: 0;
+}
+
+.phase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.phase-grid article {
+  background: var(--surface);
+  border-radius: 1.2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.phase-title {
+  margin: 0;
+  font-weight: 700;
+}
+
+.phase-time {
+  margin: 0.3rem 0 0.7rem;
+  color: var(--muted);
+}
+
+.phase-grid ul {
+  margin: 0 0 0.7rem;
+  padding-left: 1.2rem;
+}
+
+.phase-owners {
+  font-weight: 600;
 }
 
 .roadmap-list {
@@ -399,42 +604,6 @@ iframe {
   color: var(--muted);
 }
 
-.tips-list {
-  margin: 2rem 0 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.tips-list li {
-  background: var(--surface);
-  border-radius: 0.9rem;
-  border: 1px solid var(--border);
-  padding: 1rem 1.2rem;
-}
-
-.steps {
-  list-style: none;
-  padding: 0;
-  margin: 2rem 0 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-}
-
-.steps li {
-  background: var(--surface);
-  border-radius: 1.2rem;
-  padding: 1.5rem;
-  box-shadow: var(--shadow);
-}
-
-.steps h3 {
-  margin: 0 0 0.5rem;
-}
-
 .site-footer {
   padding: 2.5rem 0;
   border-top: 1px solid var(--border);
@@ -466,8 +635,22 @@ iframe {
     align-items: flex-start;
   }
 
+  .page-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .milestones-card {
+    padding: 1.25rem;
+  }
+
   .requirements-grid,
-  .stakeholder-list {
+  .stakeholder-list,
+  .stat-grid,
+  .trend-grid,
+  .competitive-grid,
+  .impact-grid,
+  .swot-grid,
+  .phase-grid {
     grid-template-columns: 1fr;
   }
 
